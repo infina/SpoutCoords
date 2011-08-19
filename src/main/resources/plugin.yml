@@ -1,0 +1,10 @@
+author: C Bouton
+database: false
+description: 'Allows for spoutcraft players to receive coordinates like they had pressed
+  F3. '
+generator: http://dinnerbone.com/minecraft/tools/pluginator/
+main: me.cbouton.plugins.spoutcoords.Spoutcoords
+name: SpoutCoords
+startup: postworld
+version: 0.1.0
+
