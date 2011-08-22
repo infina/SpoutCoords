@@ -6,8 +6,6 @@ package me.cbouton.plugins.spoutcoords;
 
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.getspout.spoutapi.gui.GenericLabel;
-import org.getspout.spoutapi.gui.GenericPopup;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
 /**
@@ -34,11 +32,8 @@ class SpoutCoordsPlayerListener extends PlayerListener{
         int ycoords = player.getLocation().getBlockY();
         int zcoords = player.getLocation().getBlockZ();
         
-        GenericLabel label = new GenericLabel();
-        label.setAuto(false).setX(10).setY(10).setWidth(100).setHeight(30);
-        GenericPopup coordpopup = new GenericPopup();
-        coordpopup.attachWidget(label);
-        label.setText("x = " + xcoords +", y = " + ycoords + ", z = " + zcoords).setDirty(true);
+        
+        plugin.label.setText("x = " + xcoords +", y = " + ycoords + ", z = " + zcoords).setDirty(true);
             
     }
 

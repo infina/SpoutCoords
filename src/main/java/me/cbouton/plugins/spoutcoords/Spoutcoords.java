@@ -7,6 +7,7 @@ import org.bukkit.event.Event.Type;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.event.input.InputListener;
+import org.getspout.spoutapi.gui.GenericLabel;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class Spoutcoords extends JavaPlugin {
@@ -14,6 +15,7 @@ public class Spoutcoords extends JavaPlugin {
     private InputListener inputListener = new SpoutCoordsInputListener(this);
     private PlayerListener playerListener = new SpoutCoordsPlayerListener(this);
     private Set<SpoutPlayer> coordinates = new HashSet<SpoutPlayer>();
+    public GenericLabel label = new GenericLabel();
     public void onDisable() {
         // TODO: Place any custom disable code here.
         System.out.println(this + " is now disabled!");
@@ -24,17 +26,14 @@ public class Spoutcoords extends JavaPlugin {
         boolean Spout = getServer().getPluginManager().isPluginEnabled("Spout");
         if (Spout){
             System.out.println("[" + this + "] is now enabled!");
-            return;
         }
         else{
             getServer().getPluginManager().disablePlugin(this);
             System.out.println("[" + this + "] is now disabled. Please install the spout plugin");
+            return;
         }
-        getServer().getPluginManager().registerEvent(Type.PLAYER_MOVE, playerListener, null, Priority.Normal, this);
+        getServer().getPluginManager().registerEvent(Type.PLAYER_MOVE, playerListener, Priority.Normal, this);
         getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, inputListener, Priority.Normal, this);
-        
- 
-        
     }
     public boolean hasCoords(SpoutPlayer player) {
         return coordinates.contains(player);
@@ -42,9 +41,12 @@ public class Spoutcoords extends JavaPlugin {
     public void setCoords(SpoutPlayer player, boolean enabled){
         if(enabled) {
             coordinates.add(player);
+            label.setAuto(false).setX(10).setY(10).setWidth(100).setHeight(10);
+            player.getMainScreen().attachWidget(this, label);
         }
         else{
             coordinates.remove(player);
+            player.getMainScreen().removeWidget(label);
         }
     }
 }
