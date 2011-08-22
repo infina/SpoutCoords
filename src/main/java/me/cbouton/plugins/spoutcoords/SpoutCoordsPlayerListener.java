@@ -32,7 +32,6 @@ class SpoutCoordsPlayerListener extends PlayerListener{
         int ycoords = player.getLocation().getBlockY();
         int zcoords = player.getLocation().getBlockZ();
         
-        
         plugin.label.setText("x = " + xcoords +", y = " + ycoords + ", z = " + zcoords).setDirty(true);
             
     }
