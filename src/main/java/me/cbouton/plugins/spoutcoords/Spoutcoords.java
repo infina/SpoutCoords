@@ -32,6 +32,7 @@ public class Spoutcoords extends JavaPlugin {
         }
         getServer().getPluginManager().registerEvent(Type.PLAYER_MOVE, playerListener, null, Priority.Normal, this);
         getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, inputListener, Priority.Normal, this);
+        
  
         
     }

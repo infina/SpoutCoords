@@ -6,7 +6,6 @@ package me.cbouton.plugins.spoutcoords;
 
 import org.getspout.spoutapi.event.input.InputListener;
 import org.getspout.spoutapi.event.input.KeyPressedEvent;
-import org.getspout.spoutapi.event.input.KeyReleasedEvent;
 import org.getspout.spoutapi.keyboard.Keyboard;
 import org.getspout.spoutapi.player.SpoutPlayer;
 
@@ -22,14 +21,11 @@ class SpoutCoordsInputListener extends InputListener {
     }
 
     @Override
-    public void onKeyReleasedEvent(KeyReleasedEvent event) {
-        int keyrelease = event.getKey().getKeyCode();
-        System.out.println(keyrelease);
-        SpoutPlayer player = event.getPlayer();
-        if(keyrelease > 0){
+    public void onKeyPressedEvent(KeyPressedEvent event) {
+        if(event.getKey() == Keyboard.KEY_F4){
+            SpoutPlayer player = event.getPlayer();
             plugin.setCoords(player, !plugin.hasCoords(player));
-            System.out.println(player + "has enabled coordinates.");
-            return;
+            System.out.println(player + "has toggled coordinates.");
         }
     }
 

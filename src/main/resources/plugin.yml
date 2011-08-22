@@ -7,4 +7,5 @@ main: me.cbouton.plugins.spoutcoords.Spoutcoords
 name: SpoutCoords
 startup: postworld
 version: 0.1.0
+depend: [Spout]
 
