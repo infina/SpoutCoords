@@ -4,6 +4,8 @@
  */
 package me.cbouton.plugins.spoutcoords;
 
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.getspout.spoutapi.event.input.InputListener;
 import org.getspout.spoutapi.event.input.KeyPressedEvent;
 import org.getspout.spoutapi.keyboard.Keyboard;
@@ -22,25 +24,31 @@ class SpoutCoordsInputListener extends InputListener {
 
     @Override
     public void onKeyPressedEvent(KeyPressedEvent event) {
-        if(event.getKey() == Keyboard.KEY_F4){
-            SpoutPlayer player = event.getPlayer();
-            plugin.setCoords(player, !plugin.hasCoords(player));
-            System.out.println(player + "has toggled coordinates.");
+        if(event.getPlayer().hasPermission("SpoutCoords.Coords")){
+            if(event.getKey() == Keyboard.KEY_F4){
+                SpoutPlayer player = event.getPlayer();
+                plugin.setCoords(player, !plugin.hasCoords(player));
+                if(plugin.hasCoords(player)){
+                    System.out.println(player + "has enabled coordinates.");
+                }
+                else{
+                    System.out.println(player + "has diabled coordinates");
+                }
+            }
+        }
+        else{
+            event.getPlayer().sendMessage(ChatColor.DARK_RED + "You don't have permissions for that.");
+            return;
+        }
+        if(event.getKey() == Keyboard.KEY_F6){
+            Player player = event.getPlayer();
+            SpoutPlayer plyr = event.getPlayer();
+            plugin.setmobtypes(plyr, !plugin.hasmobtypes(plyr));
+            System.out.println(player + "has toggled mob titles.");
         }
     }
 
-   /* @Override
-    public void onKeyPressedEvent(KeyPressedEvent event) {
-        Keyboard keypress = event.getKey();
-        System.out.println(keypress.toString());
-        SpoutPlayer player = event.getPlayer();
-        if(keypress.compareTo(Keyboard.KEY_F4) == 0){
-            plugin.setCoords(player, !plugin.hasCoords(player));
-            System.out.println(player + "has enabled coordinates.");
-            return;
-        }
-    }*/
-    
+     
 
     
     
