@@ -3,7 +3,6 @@ package me.cbouton.plugins.spoutcoords;
 import java.util.HashSet;
 import java.util.Set;
 import org.bukkit.Server;
-import org.bukkit.entity.Player;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.event.entity.EntityListener;
@@ -16,10 +15,13 @@ import org.getspout.spoutapi.player.SpoutPlayer;
 
 public class Spoutcoords extends JavaPlugin {
 
+
+    
+
     private InputListener inputListener = new SpoutCoordsInputListener(this);
     private PlayerListener playerListener = new SpoutCoordsPlayerListener(this);
     private Set<SpoutPlayer> coordinates = new HashSet<SpoutPlayer>();
-    private Set<SpoutPlayer> mobtypes = new HashSet<SpoutPlayer>();
+    public Set<SpoutPlayer> mobtypes = new HashSet<SpoutPlayer>();
     private EntityListener entityListener = new SpoutCoordsEntityListener(this);
     public GenericLabel label = new GenericLabel();
     public Server server = getServer();
@@ -50,7 +52,7 @@ public class Spoutcoords extends JavaPlugin {
     public void setCoords(SpoutPlayer player, boolean enabled){
         if(enabled) {
             coordinates.add(player);
-            label.setAuto(false).setX(10).setY(10).setWidth(100).setHeight(10);
+            label.setAuto(false).setX(10).setY(10).setWidth(100).setHeight(20);
             player.getMainScreen().attachWidget(this, label);
         }
         else{
@@ -64,13 +66,14 @@ public class Spoutcoords extends JavaPlugin {
     public void setmobtypes(SpoutPlayer player, boolean enabled){
         if(enabled){
             mobtypes.add(player);
-            mobtypes.toArray(mobbers);
+            
         }
         else{
             mobtypes.remove(player);
-            mobtypes.toArray(mobbers);
+           
             SpoutManager.getAppearanceManager().resetAllTitles();
         }
     }
+
 }
 

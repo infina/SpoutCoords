@@ -29,10 +29,10 @@ class SpoutCoordsInputListener extends InputListener {
                 SpoutPlayer player = event.getPlayer();
                 plugin.setCoords(player, !plugin.hasCoords(player));
                 if(plugin.hasCoords(player)){
-                    System.out.println(player + "has enabled coordinates.");
+                    System.out.println(player.getDisplayName() + " has enabled coordinates.");
                 }
                 else{
-                    System.out.println(player + "has diabled coordinates");
+                    System.out.println(player.getDisplayName() + " has diabled coordinates");
                 }
             }
         }
@@ -40,11 +40,11 @@ class SpoutCoordsInputListener extends InputListener {
             event.getPlayer().sendMessage(ChatColor.DARK_RED + "You don't have permissions for that.");
             return;
         }
-        if(event.getKey() == Keyboard.KEY_F6){
+        if(event.getKey() == Keyboard.KEY_F6 && event.getPlayer().hasPermission("SpoutCoords.Mobs")){
             Player player = event.getPlayer();
             SpoutPlayer plyr = event.getPlayer();
             plugin.setmobtypes(plyr, !plugin.hasmobtypes(plyr));
-            System.out.println(player + "has toggled mob titles.");
+            System.out.println(player.getDisplayName() + " has toggled mob titles.");
         }
     }
 
