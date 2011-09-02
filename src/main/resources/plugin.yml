@@ -13,6 +13,6 @@ permissions:
     default: true
     description: Allows use of F4 coordinates.
   SpoutCoords.Mobs:
-    default: ops
+    default: op
     description: Easter Egg.
 
