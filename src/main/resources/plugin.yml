@@ -7,7 +7,7 @@ main: com.cbouton.plugins.spoutcoords.Spoutcoords
 name: SpoutCoords
 website: cbouton.com
 startup: postworld
-version: 0.6.1
+version: 1.${build.number}
 depend: [Spout]
 permissions:
   SpoutCoords.Coords:

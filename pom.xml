@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cbouton.plugins.spoutcoords</groupId>
     <artifactId>SpoutCoords</artifactId>
-    <version>0.6.1</version>
+    <version>dev-SNAPSHOT</version>
     <name>SpoutCoords</name>
     <repositories>
         <repository>
