@@ -1,4 +1,4 @@
-package me.cbouton.plugins.spoutcoords;
+package com.cbouton.plugins.spoutcoords;
 
 import java.util.HashSet;
 import java.util.Set;

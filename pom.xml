@@ -1,13 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>me.cbouton.plugins.spoutcoords</groupId>
+    <groupId>com.cbouton.plugins.spoutcoords</groupId>
     <artifactId>SpoutCoords</artifactId>
-    <version>0.5.0</version>
+    <version>0.6.1</version>
     <name>SpoutCoords</name>
     <repositories>
         <repository>
             <id>bukkit-repo</id>
             <url>http://repo.bukkit.org/artifactory/repo</url>
+        </repository>
+        <repository>
+            <id>spout-repo</id>
+            <url>http://repo.getspout.org</url>
         </repository>
     </repositories>
     <build>

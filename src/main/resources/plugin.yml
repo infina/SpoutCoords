@@ -3,10 +3,11 @@ database: false
 description: 'Allows for spoutcraft players to receive coordinates like they had pressed
   F3. '
 generator: http://dinnerbone.com/minecraft/tools/pluginator/
-main: me.cbouton.plugins.spoutcoords.Spoutcoords
+main: com.cbouton.plugins.spoutcoords.Spoutcoords
 name: SpoutCoords
+website: cbouton.com
 startup: postworld
-version: 0.5.0
+version: 0.6.1
 depend: [Spout]
 permissions:
   SpoutCoords.Coords:
